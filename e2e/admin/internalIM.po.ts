@@ -1,0 +1,93 @@
+import { browser, by, element, protractor} from 'protractor';
+
+export class EnvisionAppPage {
+  navigateTo() {
+    return browser.get('/');
+  }
+
+  getParagraphText() {
+    return element(by.xpath('//*[@id="admin"]/app-login/div[2]/div[1]')).getText();
+  }
+
+  getEmailAddress(){
+  	return element(by.css('[name="email"]'));
+  }
+
+   getPassword(){
+  	return  element(by.css('[name="password"]'));
+  }
+
+  signIn(){
+  	return   element(by.buttonText("Sign In"));
+  }
+
+  successMsg(){
+  	return element(by.className('sn-content')).getText();
+  }
+
+  errorMsg(){
+  	return element(by.className('error')).getText();
+  }
+
+  logOutApp(){
+  	return  element(by.buttonText("Logout"));
+  }
+
+  currentUrl(){
+  	return browser.getCurrentUrl();
+  }
+
+  menuClick(){
+  	return  element(by.id('hamburger'));
+  }
+
+  pageTitleText(){
+    return element(by.xpath('//*[@id="admin"]/app-admin/div/app-secondary-nav/nav/div[1]/span[2]/span')).getText();
+  }
+
+    upArrowKey(){
+  return browser.actions().sendKeys(protractor.Key.ARROW_UP).perform();
+}
+
+downArrowKey(){
+  return browser.actions().sendKeys(protractor.Key.ARROW_DOWN).perform();
+}
+
+leftArrowKey(){
+  return browser.actions().sendKeys(protractor.Key.ARROW_LEFT).perform();
+}
+
+rightArrowKey(){
+  return browser.actions().sendKeys(protractor.Key.ARROW_RIGHT).perform();
+}
+
+enterArrowKey(){
+  return browser.actions().sendKeys(protractor.Key.ENTER).perform();
+}
+
+tabKeyClick(){
+   return browser.actions().sendKeys(protractor.Key.TAB).perform();
+}
+
+InternalIMLink(){
+  return element(by.xpath('//*[@id="admin-nav"]/ul/li[8]/span'));
+}
+
+selectInstantMessage(){
+  return element(by.xpath('//*[@id="inst-messages"]/div/div[2]/div[1]/table/tbody/tr/td[3]'));
+}
+
+selectPartnerValue(){
+  return element(by.xpath('//*[@id="partnerinst"]/select/option[1]'));
+}
+
+writeTextareaText(){
+  return element(by.xpath('//*[@id="inst-messages"]/div/div[3]/div/div/form/textarea'));
+}
+sendBtnClick(){
+  return element(by.xpath('//*[@id="inst-messages"]/div/div[3]/div/div/form/button'));
+}
+deleteBtnClick(){
+  return element(by.xpath('//*[@id="inst-messages"]/div/div[2]/div[1]/table/tbody/tr[1]/td[4]/span'));
+}
+}
